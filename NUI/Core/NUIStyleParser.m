@@ -14,7 +14,7 @@
 #    import "NUIParse.h"
 #endif
 
-#import "NUIPTokeniser.h"
+//#import "NUIPTokeniser.h"
 #import "NUITokeniserDelegate.h"
 #import "NUIParserDelegate.h"
 #import "NUIStyleSheet.h"
