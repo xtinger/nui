@@ -1,4 +1,4 @@
-@primaryBackgroundColor: #E6E6E6;
+@primaryBackgroundColor: #FFFF00;
 
 Sidebar {
 background-color: @primaryBackgroundColor;
