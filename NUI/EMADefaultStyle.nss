@@ -22,7 +22,7 @@
 @colorChatMine: RGBA(133, 214, 255, 0.9);
 @colorChatOthers: RGBA((255, 255, 255, 0.9);
 
-@primaryBackgroundColor: #00FFFF;
+@primaryBackgroundColor: #FFFFFF;
 @primaryTintColor: #004080;/*colorGrayBlue*/
 @secondaryBackgroundColor: #e9f0f9;/*colorMainBackground*/
 @stupidBackgroundColor: #e9f0f9;
@@ -32,7 +32,7 @@ background-color: @primaryBackgroundColor;
 }
 
 NavigationBar {
-/**back/
+/*back*/
 tint-color:@primaryBackgroundColor;
 bar-tint-color:@primaryBackgroundColor;
 /*for buttons*/
