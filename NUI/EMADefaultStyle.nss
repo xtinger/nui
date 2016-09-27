@@ -20,7 +20,7 @@
 @colorSidebarSelection: #dce6f7;
 @colorNavigationBack: #FFFFFF;
 @colorChatMine: RGBA(133, 214, 255, 0.9);
-@colorChatOthers: RGBA((255, 255, 255, 0.9);
+@colorChatOthers: RGBA(255, 255, 255, 0.9);
 
 @primaryBackgroundColor: #FFFFFF;
 @primaryTintColor: #004080;/*colorGrayBlue*/
@@ -28,45 +28,52 @@
 @stupidBackgroundColor: #e9f0f9;
 
 Sidebar {
-background-color: @primaryBackgroundColor;
+    background-color: @primaryBackgroundColor;
 }
 
 NavigationBar {
-/*back*/
-tint-color:@primaryBackgroundColor;
-bar-tint-color:@primaryBackgroundColor;
-/*for buttons*/
-background-tint-color: @primaryTintColor;
-/*for title*/
-font-color: #0000000;
+    /*back*/
+    tint-color:@primaryBackgroundColor;
+    bar-tint-color:@primaryBackgroundColor;
+    /*for buttons*/
+    background-tint-color: @primaryTintColor;
+    /*for title*/
+    font-color: #0000000;
 }
 
 
 TableView{
-background-color: @secondaryBackgroundColor;
+    background-color: @secondaryBackgroundColor;
 }
 
 /*
-BarButton {
-font-color:@primaryTintColor;
-}
-*/
+ BarButton {
+ font-color:@primaryTintColor;
+ }
+ */
 
 /*
-CustomBarButton{
-tint-color:#000000;
-}
-*/
+ CustomBarButton{
+ tint-color:#000000;
+ }
+ */
 
 /*
-BarButtonItem{
-tint-color:#000000;
-}
-*/
+ BarButtonItem{
+ tint-color:#000000;
+ }
+ */
 
 /*
-Window{
-tint-color:@primaryTintColor;
-}
-*/
+ Window{
+ tint-color:@primaryTintColor;
+ }
+ */
 
+ChatMessageBalloonMine{
+    fill-color: @colorChatMine;
+    fill-color-failed: #FF0000;
+}
+ChatMessageBalloonOthers{
+    fill-color: @colorChatOthers;
+}
