@@ -22,7 +22,7 @@
 @colorChatMine: RGBA(133, 214, 255, 0.9);
 @colorChatOthers: RGBA((255, 255, 255, 0.9);
 
-@primaryBackgroundColor: #FFFFFF;
+@primaryBackgroundColor: #00FFFF;
 @primaryTintColor: #004080;/*colorGrayBlue*/
 @secondaryBackgroundColor: #e9f0f9;/*colorMainBackground*/
 @stupidBackgroundColor: #e9f0f9;
@@ -32,10 +32,15 @@ background-color: @primaryBackgroundColor;
 }
 
 NavigationBar {
-background-color: @primaryBackgroundColor;
+/**back/
+tint-color:@primaryBackgroundColor;
+bar-tint-color:@primaryBackgroundColor;
+/*for buttons*/
 background-tint-color: @primaryTintColor;
-bar-tint-color:@primaryTintColor;
+/*for title*/
+font-color: #0000000;
 }
+
 
 TableView{
 background-color: @secondaryBackgroundColor;
