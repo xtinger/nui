@@ -1,5 +1,3 @@
-@primaryBackgroundColor: #FF0000;
-
 @colorGrayBlue: #004080;
 @colorABlue: #5c92db;
 @colorMainBackground: #e9f0f9;
@@ -24,27 +22,46 @@
 @colorChatMine: RGBA(133, 214, 255, 0.9);
 @colorChatOthers: RGBA((255, 255, 255, 0.9);
 
+@primaryBackgroundColor: #FFFFFF;
+@primaryTintColor: #004080;/*colorGrayBlue*/
+@secondaryBackgroundColor: #e9f0f9;/*colorMainBackground*/
+@stupidBackgroundColor: #e9f0f9;
 
 Sidebar {
 background-color: @primaryBackgroundColor;
 }
 
-
 NavigationBar {
 background-color: @primaryBackgroundColor;
-background-tint-color: #FFFFFF;
-bar-tint-color:#FFFFFF;
+background-tint-color: @primaryTintColor;
+bar-tint-color:@primaryTintColor;
 }
 
+TableView{
+background-color: @secondaryBackgroundColor;
+}
+
+/*
 BarButton {
-font-color:#FFFFFF;
+font-color:@primaryTintColor;
 }
+*/
 
+/*
 CustomBarButton{
 tint-color:#000000;
 }
+*/
 
+/*
 BarButtonItem{
 tint-color:#000000;
 }
+*/
+
+/*
+Window{
+tint-color:@primaryTintColor;
+}
+*/
 
