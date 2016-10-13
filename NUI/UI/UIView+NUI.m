@@ -41,6 +41,15 @@
     [self override_didMoveToWindow];
 }
 
+- (void)override_layoutSubviews {
+    
+    [self override_layoutSubviews];
+    
+    if (![self.nuiClass isEqualToString:kNUIClassNone]) {
+        [NUIViewRenderer renderGradient:self withClass:self.nuiClass];
+    }
+}
+
 - (void)setNuiClass:(NSString*)value
 {
     if (![value isEqualToString:kNUIClassNone]) {

@@ -132,14 +132,13 @@
         
         gradientLayer.colors = @[(id)colorFrom.CGColor,
                                  (id)colorTo.CGColor];
-        
+
         if (!objc_getAssociatedObject(view, kNUIAssociatedXGGradientLayerKey)) {
             objc_setAssociatedObject(view, kNUIAssociatedXGGradientLayerKey, gradientLayer, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
             [view.layer insertSublayer:gradientLayer atIndex:0];
         }
-        else {
-            [gradientLayer setNeedsDisplay];
-        }
+        
+        [gradientLayer setNeedsDisplay];
     }
 }
 

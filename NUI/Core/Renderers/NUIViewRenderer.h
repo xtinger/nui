@@ -18,6 +18,9 @@
 + (void)renderShadow:(UIView*)view withClass:(NSString*)className;
 + (void)renderSize:(UIView*)view withClass:(NSString*)className;
 
+//XG
++ (void)renderGradient:(UIView*)view withClass:(NSString*)className;
+
 + (BOOL)hasShadowProperties:(UIView*)view withClass:(NSString*)className;
 
 @end
