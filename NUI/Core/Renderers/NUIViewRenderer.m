@@ -7,6 +7,7 @@
 //
 
 #import "NUIViewRenderer.h"
+#import "NUIConstants.h"
 
 @implementation NUIViewRenderer
 
@@ -21,7 +22,10 @@
     } else if ([NUISettings hasProperty:@"background-color" withClass:className]) {
         [view setBackgroundColor: [NUISettings getColor:@"background-color" withClass: className]];
     }
-
+    
+    //XG
+    [self renderGradient:view withClass:className];
+    
     [self renderSize:view withClass:className];
     [self renderBorder:view withClass:className];
     [self renderShadow:view withClass:className];
@@ -99,6 +103,44 @@
         hasAnyShadowProperty |= [NUISettings hasProperty:property withClass:className];
     }
     return hasAnyShadowProperty;
+}
+
++ (void)renderGradient:(UIView*)view withClass:(NSString*)className {
+    
+    if ([NUISettings hasProperty:@"gradient-test" withClass:className] && [NUISettings getBoolean:@"gradient-test" withClass:className]) {
+        
+        CAGradientLayer* gradientLayer = objc_getAssociatedObject(view, kNUIAssociatedXGGradientLayerKey);
+        
+        if (!gradientLayer) {
+            gradientLayer = [CAGradientLayer layer];
+        }
+        
+        gradientLayer.frame = view.bounds;
+        
+        if ([NUISettings hasProperty:@"gradient-vertical" withClass:className] && ![NUISettings getBoolean:@"gradient-vertical" withClass:className]) {
+            gradientLayer.startPoint = CGPointMake(0.0, 0.5);
+            gradientLayer.endPoint = CGPointMake(1.0, 0.5);
+        }
+        else {
+            gradientLayer.startPoint = CGPointMake(0.5, 0.0);
+            gradientLayer.endPoint = CGPointMake(0.5, 1.0);
+        }
+        
+        UIColor* colorFrom = [NUISettings hasProperty:@"gradient-color-from" withClass:className] ? ([NUISettings getColor:@"gradient-color-from" withClass:className] ?: [UIColor whiteColor]) : [UIColor whiteColor];
+        
+        UIColor* colorTo = [NUISettings hasProperty:@"gradient-color-to" withClass:className] ? ([NUISettings getColor:@"gradient-color-to" withClass:className] ?: [UIColor whiteColor]) : [UIColor whiteColor];
+        
+        gradientLayer.colors = @[(id)colorFrom.CGColor,
+                                 (id)colorTo.CGColor];
+        
+        if (!objc_getAssociatedObject(view, kNUIAssociatedXGGradientLayerKey)) {
+            objc_setAssociatedObject(view, kNUIAssociatedXGGradientLayerKey, gradientLayer, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+            [view.layer insertSublayer:gradientLayer atIndex:0];
+        }
+        else {
+            [gradientLayer setNeedsDisplay];
+        }
+    }
 }
 
 @end

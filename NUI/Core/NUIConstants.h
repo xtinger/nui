@@ -15,3 +15,4 @@ static NSString * const kNUIClassNone               = @"none";
 static void * const kNUIAssociatedClassKey          = "nuiClass";
 static void * const kNUIAssociatedAppliedFlagKey    = "nuiIsApplied";
 static void * const kNUIAssociatedGradientLayerKey  = "nuiGradientLayer";
+static void * const kNUIAssociatedXGGradientLayerKey  = "nuiXGGradientLayer";
