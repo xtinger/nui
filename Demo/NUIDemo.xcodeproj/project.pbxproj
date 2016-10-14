@@ -121,6 +121,8 @@
 		89B940801671418200850A9A /* NUIViewRenderer.m in Sources */ = {isa = PBXBuildFile; fileRef = 89B940451671418100850A9A /* NUIViewRenderer.m */; };
 		89B940811671418200850A9A /* NUIStyle.nss in Resources */ = {isa = PBXBuildFile; fileRef = 89B940461671418100850A9A /* NUIStyle.nss */; };
 		89B940841671418200850A9A /* NUIViewBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 89B9404A1671418100850A9A /* NUIViewBackground.png */; };
+		92D353111DB12366000B55D1 /* UICollectionView+NUI.m in Sources */ = {isa = PBXBuildFile; fileRef = 92D353101DB12366000B55D1 /* UICollectionView+NUI.m */; };
+		92D353141DB12384000B55D1 /* NUICollectionViewRenderer.m in Sources */ = {isa = PBXBuildFile; fileRef = 92D353131DB12384000B55D1 /* NUICollectionViewRenderer.m */; };
 		B51BC28A169724A3004A38F8 /* UISwitch+NUI.m in Sources */ = {isa = PBXBuildFile; fileRef = B51BC289169724A3004A38F8 /* UISwitch+NUI.m */; };
 		B51BC28E16972527004A38F8 /* NUISwitchRenderer.m in Sources */ = {isa = PBXBuildFile; fileRef = B51BC28D16972527004A38F8 /* NUISwitchRenderer.m */; };
 		CB8A031017CC1F7C0065A7DD /* NUITextViewRenderer.m in Sources */ = {isa = PBXBuildFile; fileRef = CB8A030F17CC1F7C0065A7DD /* NUITextViewRenderer.m */; };
@@ -316,6 +318,10 @@
 		89B940451671418100850A9A /* NUIViewRenderer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NUIViewRenderer.m; sourceTree = "<group>"; };
 		89B940461671418100850A9A /* NUIStyle.nss */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = NUIStyle.nss; sourceTree = "<group>"; };
 		89B9404A1671418100850A9A /* NUIViewBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = NUIViewBackground.png; sourceTree = "<group>"; };
+		92D3530F1DB12366000B55D1 /* UICollectionView+NUI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UICollectionView+NUI.h"; sourceTree = "<group>"; };
+		92D353101DB12366000B55D1 /* UICollectionView+NUI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UICollectionView+NUI.m"; sourceTree = "<group>"; };
+		92D353121DB12384000B55D1 /* NUICollectionViewRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NUICollectionViewRenderer.h; sourceTree = "<group>"; };
+		92D353131DB12384000B55D1 /* NUICollectionViewRenderer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NUICollectionViewRenderer.m; sourceTree = "<group>"; };
 		945E0E35381989455733E516 /* Pods-NUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-NUITests/Pods-NUITests.release.xcconfig"; sourceTree = "<group>"; };
 		B51BC288169724A3004A38F8 /* UISwitch+NUI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UISwitch+NUI.h"; sourceTree = "<group>"; };
 		B51BC289169724A3004A38F8 /* UISwitch+NUI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UISwitch+NUI.m"; sourceTree = "<group>"; };
@@ -732,6 +738,8 @@
 				89B940331671418100850A9A /* NUIBarButtonItemRenderer.m */,
 				89B940341671418100850A9A /* NUIButtonRenderer.h */,
 				89B940351671418100850A9A /* NUIButtonRenderer.m */,
+				92D353121DB12384000B55D1 /* NUICollectionViewRenderer.h */,
+				92D353131DB12384000B55D1 /* NUICollectionViewRenderer.m */,
 				D8E7167F16B8AF4300686854 /* NUIControlRenderer.h */,
 				D8E7168016B8AF4300686854 /* NUIControlRenderer.m */,
 				89B940361671418100850A9A /* NUILabelRenderer.h */,
@@ -785,6 +793,8 @@
 		89B9404F1671418100850A9A /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				92D3530F1DB12366000B55D1 /* UICollectionView+NUI.h */,
+				92D353101DB12366000B55D1 /* UICollectionView+NUI.m */,
 				7C5A17AC1CCE19BC001288C5 /* UIActivityIndicatorView+NUI.h */,
 				7C5A17AD1CCE19BC001288C5 /* UIActivityIndicatorView+NUI.m */,
 				DBB82A8C1C5C2FC900A483D3 /* UIPageControl+NUI.h */,
@@ -1131,8 +1141,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				92D353141DB12384000B55D1 /* NUICollectionViewRenderer.m in Sources */,
 				4A0B8642165EE59A005B5756 /* main.m in Sources */,
 				4A0B8646165EE59A005B5756 /* AppDelegate.m in Sources */,
+				92D353111DB12366000B55D1 /* UICollectionView+NUI.m in Sources */,
 				4A0B864C165EE59A005B5756 /* ViewController.m in Sources */,
 				4A0B8687165F1383005B5756 /* NUIDemoTableViewController.m in Sources */,
 				89B940701671418200850A9A /* NUIAppearance.m in Sources */,
