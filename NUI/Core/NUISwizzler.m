@@ -30,7 +30,9 @@
     [self swizzleDidMoveToWindow:[UIToolbar class]];
     [self swizzleDidMoveToWindow:[UIPageControl class]];
     [self swizzleDidMoveToWindow:[UIControl class]];
+    
     [self swizzleDidMoveToWindow:[UIView class]];
+    [self swizzleLayoutSubviews:[UIView class]];
   
     [self swizzle:[UITextField class] methodName:@"textRectForBounds:"];
     [self swizzle:[UITextField class] methodName:@"editingRectForBounds:"];
@@ -48,11 +50,17 @@
     [self swizzleDealloc:[UITabBar class]];
     [self swizzleDealloc:[UITableViewCell class]];
     [self swizzleDealloc:[UITableView class]];
+    [self swizzleDealloc:[UICollectionView class]];
 }
 
 - (void)swizzleDidMoveToWindow:(Class)class
 {
     [self swizzle:class methodName:@"didMoveToWindow"];
+}
+
+- (void)swizzleLayoutSubviews:(Class)class
+{
+    [self swizzle:class methodName:@"layoutSubviews"];
 }
 
 - (void)swizzleDealloc:(Class)class {
