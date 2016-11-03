@@ -13,6 +13,16 @@
 
 static NUIRenderer *gInstance = nil;
 
++ (void)renderCollectionView:(UICollectionView*)collectionView
+{
+    [NUICollectionViewRenderer render:collectionView withClass:@"Table"];
+}
+
++ (void)renderCollectionView:(UICollectionView*)collectionView withClass:(NSString*)className
+{
+    [NUICollectionViewRenderer render:collectionView withClass:className];
+}
+
 + (void)renderActivityIndicator:(UIActivityIndicatorView *)activityIndicator {
     [NUIActivityIndicatorRenderer render:activityIndicator withClass:@"ActivityIndicator"];
 }

@@ -50,6 +50,7 @@
     [self swizzleDealloc:[UITabBar class]];
     [self swizzleDealloc:[UITableViewCell class]];
     [self swizzleDealloc:[UITableView class]];
+    [self swizzleDealloc:[UICollectionView class]];
 }
 
 - (void)swizzleDidMoveToWindow:(Class)class

@@ -13,6 +13,10 @@
 
 + (void)render:(UIView*)view withClass:(NSString*)className
 {
+//    if ([className isEqualToString:@"TopicHeaderView"]){
+//        int i = 1;
+//    }
+    
     if ([NUISettings hasProperty:@"background-image" withClass:className]) {
         if ([NUISettings hasProperty:@"background-repeat" withClass:className] && ![NUISettings getBoolean:@"background-repeat" withClass:className]) {
             view.layer.contents = (__bridge id)[NUISettings getImage:@"background-image" withClass:className].CGImage;
@@ -25,6 +29,13 @@
     
     //XG
     [self renderGradient:view withClass:className];
+
+    //XG
+    if ([NUISettings hasProperty:@"layout-margins" withClass:className]) {
+        //view.preservesSuperviewLayoutMargins = YES;
+        view.layoutMargins = [NUISettings getEdgeInsets:@"layout-margins" withClass:className];
+        [view setNeedsLayout];
+    }
     
     [self renderSize:view withClass:className];
     [self renderBorder:view withClass:className];
@@ -107,10 +118,17 @@
 
 + (void)renderGradient:(UIView*)view withClass:(NSString*)className {
     
+<<<<<<< HEAD
     if ([NUISettings hasProperty:@"gradient-test" withClass:className] && [NUISettings getBoolean:@"gradient-test" withClass:className]) {
         
         CAGradientLayer* gradientLayer = objc_getAssociatedObject(view, kNUIAssociatedXGGradientLayerKey);
         
+=======
+    CAGradientLayer* gradientLayer = objc_getAssociatedObject(view, kNUIAssociatedXGGradientLayerKey);
+    
+    if ([NUISettings hasProperty:@"gradient-test" withClass:className] && [NUISettings getBoolean:@"gradient-test" withClass:className]) {
+
+>>>>>>> da669d9b841f70aa707cd190f07b4db7feb278e7
         if (!gradientLayer) {
             gradientLayer = [CAGradientLayer layer];
         }
@@ -140,6 +158,13 @@
         
         [gradientLayer setNeedsDisplay];
     }
+<<<<<<< HEAD
+=======
+    else if (gradientLayer) {
+        objc_setAssociatedObject(view, kNUIAssociatedXGGradientLayerKey, nil, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+        [gradientLayer removeFromSuperlayer];
+    }
+>>>>>>> da669d9b841f70aa707cd190f07b4db7feb278e7
 }
 
 @end

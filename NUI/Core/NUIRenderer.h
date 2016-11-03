@@ -32,6 +32,7 @@
 #import "NUITextViewRenderer.h"
 #import "NUIViewRenderer.h"
 #import "NUIWindowRenderer.h"
+#import "NUICollectionViewRenderer.h"
 #import "UIView+NUI.h"
 
 @interface NUIRenderer : NSObject
@@ -39,6 +40,9 @@
 @property(nonatomic)BOOL rerenderOnOrientationChange;
 
 + (void)rerender;
+
++ (void)renderCollectionView:(UICollectionView*)collectionView;
++ (void)renderCollectionView:(UICollectionView*)collectionView withClass:(NSString*)className;
 
 + (void)renderActivityIndicator:(UIActivityIndicatorView *)activityIndicator;
 + (void)renderActivityIndicator:(UIActivityIndicatorView *)activityIndicator withClass:(NSString*)className;
