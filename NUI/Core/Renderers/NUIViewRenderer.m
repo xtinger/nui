@@ -118,17 +118,10 @@
 
 + (void)renderGradient:(UIView*)view withClass:(NSString*)className {
     
-<<<<<<< HEAD
-    if ([NUISettings hasProperty:@"gradient-test" withClass:className] && [NUISettings getBoolean:@"gradient-test" withClass:className]) {
-        
-        CAGradientLayer* gradientLayer = objc_getAssociatedObject(view, kNUIAssociatedXGGradientLayerKey);
-        
-=======
     CAGradientLayer* gradientLayer = objc_getAssociatedObject(view, kNUIAssociatedXGGradientLayerKey);
     
     if ([NUISettings hasProperty:@"gradient-test" withClass:className] && [NUISettings getBoolean:@"gradient-test" withClass:className]) {
 
->>>>>>> da669d9b841f70aa707cd190f07b4db7feb278e7
         if (!gradientLayer) {
             gradientLayer = [CAGradientLayer layer];
         }
@@ -158,13 +151,10 @@
         
         [gradientLayer setNeedsDisplay];
     }
-<<<<<<< HEAD
-=======
     else if (gradientLayer) {
         objc_setAssociatedObject(view, kNUIAssociatedXGGradientLayerKey, nil, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
         [gradientLayer removeFromSuperlayer];
     }
->>>>>>> da669d9b841f70aa707cd190f07b4db7feb278e7
 }
 
 @end
