@@ -26,8 +26,7 @@
     self.nuiApplied = YES;
 }
 
-- (void)override_didMoveToWindow
-{
+- (void)override_didMoveToWindow {
     if (!self.isNUIApplied) {
         [self applyNUI];
     }
