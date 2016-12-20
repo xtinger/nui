@@ -11,7 +11,7 @@
 
 - (void)applyNUI
 {
-    if ([self isMemberOfClass:[UITextView class]] || self.nuiClass) {
+    if ([self isKindOfClass:[UITextView class]] || self.nuiClass) {
         [self initNUI];
         if (![self.nuiClass isEqualToString:kNUIClassNone]) {
             [NUIRenderer renderTextView:self withClass:self.nuiClass];
