@@ -25,6 +25,11 @@
         }
     }
 
+    //XG
+    if ([NUISettings hasProperty:@"tint-color" withClass:className]) {
+        [button setTintColor:[NUISettings getColor:@"tint-color" withClass:className]];
+    }
+    
     // Set padding
     if ([NUISettings hasProperty:@"padding" withClass:className]) {
         [button setTitleEdgeInsets:[NUISettings getEdgeInsets:@"padding" withClass:className]];
