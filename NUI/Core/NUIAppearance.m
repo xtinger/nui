@@ -13,6 +13,7 @@
 + (void)init
 {
     [self initUIBarButtonItem];
+    [self initUINavigationBar];
 }
 
 + (void)initUIBarButtonItem
@@ -48,6 +49,22 @@
         [[uiClass appearance] setBackButtonBackgroundImage:[NUISettings getImage:@"background-image-disabled" withClass:className] forState:UIControlStateDisabled barMetrics:UIBarMetricsDefault];
     }
     
+}
+
++ (void)initUINavigationBar
+{
+    NSString *className = @"NavigationBarAppearance";
+    Class uiClass = [UINavigationBar class];
+    
+    //NSDictionary *titleTextAttributes = [NUIUtilities titleTextAttributesForClass:className];
+    
+    if ([NUISettings hasProperty:@"bar-tint-color" withClass:className]) {
+        [[uiClass appearance] setBarTintColor:[NUISettings getColor:@"bar-tint-color" withClass:className]];
+    }
+    
+    if ([NUISettings hasProperty:@"tint-color" withClass:className]) {
+        [[uiClass appearance] setTintColor:[NUISettings getColor:@"tint-color" withClass:className]];
+    }
 }
 
 @end

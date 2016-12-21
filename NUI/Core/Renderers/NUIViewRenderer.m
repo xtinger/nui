@@ -37,6 +37,11 @@
         [view setNeedsLayout];
     }
     
+    //XG
+    if ([NUISettings hasProperty:@"tint-color" withClass:className]) {
+        [view setTintColor:[NUISettings getColor:@"tint-color" withClass:className]];
+    }
+    
     [self renderSize:view withClass:className];
     [self renderBorder:view withClass:className];
     [self renderShadow:view withClass:className];

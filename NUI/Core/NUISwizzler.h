@@ -14,4 +14,8 @@
 
 - (void)swizzleAll;
 
+- (void)swizzleDidMoveToWindow:(Class)class;
+- (void)swizzleLayoutSubviews:(Class)class;
+- (void)swizzleDealloc:(Class)class;
+
 @end

@@ -45,14 +45,25 @@
         [control setDividerImage:[NUISettings getImageFromColor:@"divider-color" withClass:className] forLeftSegmentState:UIControlStateNormal rightSegmentState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
     }
     
-    // Set background tint color
-    if ([NUISettings hasProperty:@"background-tint-color" withClass:className]) {
-#if __IPHONE_OS_VERSION_MIN_REQUIRED < 70000
-        // UISegmentedControlStyleBar is necessary for setTintColor to take effect
-        control.segmentedControlStyle = UISegmentedControlStyleBar;
-#endif
-        [control setTintColor:[NUISettings getColor:@"background-tint-color" withClass:className]];
+    // XG
+    [self renderTintColor:@"background-tint-color" control:control withClass:className];
+    [self renderTintColor:@"tint-color" control:control withClass:className];
+    
+    // XG
+    if ([NUISettings hasProperty:@"corner-radius" withClass:className]) {
+        [control.layer setCornerRadius:[NUISettings getFloat:@"corner-radius" withClass:className]];
+        control.layer.masksToBounds = YES;
     }
+    
+    // XG
+    
+    if ([NUISettings hasProperty:@"border-color" withClass:className]) {
+        [control.layer setBorderColor:[[NUISettings getColor:@"border-color" withClass:className] CGColor]];
+    }
+    if ([NUISettings hasProperty:@"border-width" withClass:className]) {
+        [control.layer setBorderWidth:[NUISettings getFloat:@"border-width" withClass:className]];
+    }
+     
     
     NSDictionary *titleTextAttributes = [NUIUtilities titleTextAttributesForClass:className];
     
@@ -65,6 +76,16 @@
         NSMutableDictionary *selectedTitleTextAttributes = [titleTextAttributes mutableCopy];
         [selectedTitleTextAttributes addEntriesFromDictionary:selectedSegmentAttributeOverrides];
         [control setTitleTextAttributes:[selectedTitleTextAttributes copy] forState:UIControlStateSelected];
+    }
+}
+
++ (void)renderTintColor:(NSString*)property control:(UISegmentedControl*)control withClass:(NSString*)className {
+    if ([NUISettings hasProperty:@"tint-color" withClass:className]) {
+#if __IPHONE_OS_VERSION_MIN_REQUIRED < 70000
+        // UISegmentedControlStyleBar is necessary for setTintColor to take effect
+        control.segmentedControlStyle = UISegmentedControlStyleBar;
+#endif
+        [control setTintColor:[NUISettings getColor:@"tint-color" withClass:className]];
     }
 }
 

@@ -296,6 +296,7 @@ static NUIRenderer *gInstance = nil;
 + (void)rerender
 {
     for (UIWindow *window in [[UIApplication sharedApplication] windows]) {
+        [self rerenderView:window];
         UIView *rootView = [[window rootViewController] view];
         [self rerenderView:rootView];
     }
