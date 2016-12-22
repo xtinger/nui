@@ -76,7 +76,9 @@
             value = definitions[variable];
             
             if (!value) {
-                [NSException raise:@"Undefined variable" format:@"Variable %@ is not defined", variable];
+                NSLog(@"Variable %@ is not defined", variable);
+                continue;
+                //[NSException raise:@"Undefined variable" format:@"Variable %@ is not defined", variable];
             }
         }
         consolidatedRuleSet[property] = value;
