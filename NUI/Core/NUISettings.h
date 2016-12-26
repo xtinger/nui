@@ -11,6 +11,8 @@
 #import "NUIStyleParser.h"
 #import "NUISwizzler.h"
 
+extern NSString *const NUIStylesLoadedNotification;
+
 @interface NUISettings : NSObject {
     NSString *autoUpdatePath;
     NSMutableDictionary *styles;

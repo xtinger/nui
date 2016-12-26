@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
+extern NSString *const NUIStyleParserGetStylesNotification;
+
 @interface NUIStyleParser : NSObject
 
 - (NSMutableDictionary*)getStylesFromFile:(NSString*)content;

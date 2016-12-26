@@ -9,6 +9,8 @@
 #import "NUISettings.h"
 #import "NUIAppearance.h"
 
+NSString *const NUIStylesLoadedNotification = @"NUIStylesLoadedNotification";
+
 @implementation NUISettings
 
 @synthesize autoUpdatePath;
@@ -33,6 +35,8 @@ static NUISettings *instance = nil;
     instance.styles = [parser getStylesFromFile:name];
     
     [NUIAppearance init];
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:NUIStylesLoadedNotification object:nil];
 }
 
 + (void)appendStylesheet:(NSString *)name
@@ -68,6 +72,8 @@ static NUISettings *instance = nil;
     instance = [self getInstance];
     NUIStyleParser *parser = [[NUIStyleParser alloc] init];
     instance.styles = [parser getStylesFromPath:path];
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:NUIStylesLoadedNotification object:nil];
 }
 
 + (void)reloadStylesheets
@@ -80,6 +86,8 @@ static NUISettings *instance = nil;
             [instance appendStyles:[parser getStylesFromFile:name]];
         }
     }
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:NUIStylesLoadedNotification object:nil];
 }
 
 + (BOOL)reloadStylesheetsOnOrientationChange:(UIInterfaceOrientation)orientation

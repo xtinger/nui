@@ -23,6 +23,8 @@
 #import "NUISettings.h"
 #import "NUIDefinition.h"
 
+NSString *const NUIStyleParserGetStylesNotification = @"NUIStyleParserGetStylesNotification";
+
 @implementation NUIStyleParser
 
 - (NSMutableDictionary*)getStylesFromFile:(NSString*)fileName
@@ -64,6 +66,7 @@
             [self mergeRuleSetIntoConsolidatedRuleSet:ruleSet consolidatedRuleSet:consolidatedRuleSets[selector] definitions:definitions];
         }
     }
+
     return consolidatedRuleSets;
 }
 
