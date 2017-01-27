@@ -11,7 +11,12 @@
 @implementation NUISearchBarRenderer
 
 + (void)render:(UISearchBar*)bar withClass:(NSString*)className
-{   
+{
+    //XG
+    if ([NUISettings hasProperty:@"bar-tint-color" withClass:className]) {
+        [bar setBarTintColor:[NUISettings getColor:@"bar-tint-color" withClass:className]];
+    }
+    
     if ([NUISettings hasProperty:@"background-color" withClass:className]) {
         [bar setBackgroundImage:[NUISettings getImageFromColor:@"background-color" withClass:className]];
     }
