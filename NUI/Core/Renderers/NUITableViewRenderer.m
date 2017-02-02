@@ -27,6 +27,11 @@
         [tableView setRowHeight:[NUISettings getFloat:@"row-height" withClass:className]];
     }
     
+    if ([NUISettings hasProperty:@"background-color" withClass:className]) {
+        [tableView setBackgroundColor: [NUISettings getColor:@"background-color" withClass: className]];
+    }
+
+    
     [self renderSizeDependentProperties:tableView withClass:(NSString*)className];
 }
 
@@ -37,6 +42,7 @@
 
 + (void)renderSizeDependentProperties:(UITableView*)tableView withClass:(NSString*)className
 {
+    /*
     // Set background color
     if ([NUISettings hasProperty:@"background-color" withClass:className]) {
         UIImage *colorImage = [NUISettings getImageFromColor:@"background-color" withClass:className];
@@ -46,6 +52,7 @@
         if (NSFoundationVersionNumber > NSFoundationVersionNumber_iOS_6_1)
             tableView.backgroundView.layer.zPosition -= 1;
     }
+     */
     
     // Set background gradient
     if ([NUISettings hasProperty:@"background-color-top" withClass:className]) {
