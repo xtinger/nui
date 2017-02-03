@@ -21,6 +21,15 @@
         [bar setBackgroundImage:[NUISettings getImageFromColor:@"background-color" withClass:className]];
     }
     
+    /*
+     The behavior of tintColor for bars has changed on iOS 7.0. It no longer affects the bar's background
+     and behaves as described for the tintColor property added to UIView.
+     To tint the bar's background, please use -barTintColor.
+     */
+    if ([NUISettings hasProperty:@"tint-color" withClass:className]) {
+        [bar setTintColor:[NUISettings getColor:@"tint-color" withClass:className]];
+    }
+    //same
     if ([NUISettings hasProperty:@"background-tint-color" withClass:className]) {
         [bar setTintColor:[NUISettings getColor:@"background-tint-color" withClass:className]];
     }
