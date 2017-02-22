@@ -51,6 +51,9 @@
     [self swizzleDealloc:[UITableViewCell class]];
     [self swizzleDealloc:[UITableView class]];
     [self swizzleDealloc:[UICollectionView class]];
+    
+    // disable styling for MFMailComposeViewController
+    [self swizzle:[UINavigationController class] methodName:@"setNavigationBar:"];
 
 }
 
