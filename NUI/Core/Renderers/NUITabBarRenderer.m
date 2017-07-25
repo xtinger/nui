@@ -21,11 +21,13 @@
     if ([NUISettings hasProperty:property withClass:className]) {
         [bar setSelectionIndicatorImage:[NUISettings getImage:property withClass:className]];
     }
-    
+
+#if __IPHONE_OS_VERSION_MIN_REQUIRED < __IPHONE_8_0
     property = @"selected-image-tint-color";
     if ([NUISettings hasProperty:property withClass:className]) {
         [bar setSelectedImageTintColor:[NUISettings getColor:property withClass:className]];
     }
+#endif
     
     [self renderSizeDependentProperties:bar];
     
