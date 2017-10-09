@@ -198,9 +198,7 @@
 
 + (UIImage*)toImageFromColorName:(NSString*)value {
     UIColor* color = [self toColor:value];
-    CGFloat alphaChannel;
-    [color getRed:NULL green:NULL blue:NULL alpha:&alphaChannel];
-    BOOL opaqueImage = (alphaChannel == 1.0);
+    BOOL opaqueImage = CGColorGetAlpha(color.CGColor) == 1.0f;
     CGRect rect = CGRectMake(0, 0, 1, 1);
     UIGraphicsBeginImageContextWithOptions(rect.size, opaqueImage, 0);
     [color setFill];
