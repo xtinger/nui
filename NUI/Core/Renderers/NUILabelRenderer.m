@@ -50,7 +50,9 @@
     NSString *property;
     
     if ([NUISettings hasFontPropertiesWithClass:className]) {
-        label.font = [NUISettings getFontWithClass:className baseFont:label.font];
+        if (label.attributedText == nil) { // иначе сбиваются настройки animated string
+            label.font = [NUISettings getFontWithClass:className baseFont:label.font];
+        }
     }
     
     property = @"text-align";
